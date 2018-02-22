@@ -2,6 +2,7 @@ const express = require('express');
 const hbs = require('hbs')
 const fs = require('fs')
 var app = express();
+var HEROKU_PORT = process.env.PORT || 3000
 
 app.set('view engine','hbs')
 hbs.registerPartials(__dirname + "/views/partials")
@@ -56,6 +57,6 @@ app.get('/bad',(req,res)=>{
   })
 })
 
-app.listen(3000,()=>{
-  console.log('server is running on port 3000')
+app.listen(HEROKU_PORT,()=>{
+  console.log(`server is running on port ${HEROKU_PORT}`)
 });
